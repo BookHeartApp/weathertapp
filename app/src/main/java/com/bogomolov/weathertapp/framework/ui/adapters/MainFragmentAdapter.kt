@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bogomolov.weathertapp.databinding.FragmentMainRecyclerItemBinding
-import com.bogomolov.weathertapp.framework.ui.main.MainFragment
+import com.bogomolov.weathertapp.framework.ui.list_of_cities.ListOfCitiesFragment
 import com.bogomolov.weathertapp.model.entities.Weather
 
-class MainFragmentAdapter(private var itemClickListener: MainFragment.OnItemViewClickListener) :
+class MainFragmentAdapter(private var itemClickListener: ListOfCitiesFragment.OnItemViewClickListener) :
     RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>() {
     private var weatherData: List<Weather> = listOf()
     private lateinit var binding: FragmentMainRecyclerItemBinding
