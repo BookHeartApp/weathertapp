@@ -1,9 +1,12 @@
 package com.bogomolov.weathertapp.model.entities
 
-data class Weather(
-    val city: City = getDefaultCity(),
-    val temperature: Int = 0,
-    val feelsLike: Int = 0
-)
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-fun getDefaultCity() = City("Москва", 55.755826, 37.617299900000035)
+@Parcelize
+data class Weather(
+    val city: City = City.getDefaultCity(),
+    val temperature: Int = 0,
+    val feelsLike: Int = 0,
+    val condition: String? = "Неизвестно"
+) : Parcelable

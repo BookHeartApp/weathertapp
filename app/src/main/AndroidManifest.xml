@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bogomolov.weathertapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
     <application
         android:name=".framework.App"
         android:allowBackup="true"
@@ -10,13 +13,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WeathertApp">
-        <activity android:name=".framework.ui.MainActivity">
+        <activity android:name=".framework.ui.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".framework.services.UsualService"/>
+        <service android:name=".framework.services.MyForegroundService"/>
+        <service android:name=".framework.services.ServiceWithThread"/>
+        <service android:name=".framework.services.BoundService"/>
+
+        <receiver android:name=".framework.receivers.MainBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
