@@ -13,4 +13,9 @@
         android:title="@string/threads"
         app:showAsAction="ifRoom"/>
 
+    <item
+        android:id="@+id/menu_contacts"
+        android:title="@string/contacts"
+        app:showAsAction="ifRoom" />
+
 </menu>

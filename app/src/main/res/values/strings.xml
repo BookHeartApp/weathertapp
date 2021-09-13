@@ -21,5 +21,7 @@
     <string name="service">Service</string>
     <string name="service_broadcast">Service + Broadcast</string>
     <string name="history">История</string>
+    <string name="need_permissions_to_read_contacts">Необходимо предоставить разрешение для чтения контактов</string>
+    <string name="contacts">Контакты</string>
 
 </resources>
