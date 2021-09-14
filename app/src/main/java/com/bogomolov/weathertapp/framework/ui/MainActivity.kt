@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bogomolov.weathertapp.R
+import com.bogomolov.weathertapp.framework.ui.contacs.ContactsFragment
 import com.bogomolov.weathertapp.framework.ui.history.HistoryFragment
-import com.bogomolov.weathertapp.framework.ui.main.MainFragment
+import com.bogomolov.weathertapp.framework.ui.list_of_cities.ListOfCitiesFragment
+import com.bogomolov.weathertapp.framework.ui.maps.MapsFragment
 import com.bogomolov.weathertapp.framework.ui.threads.ThreadsFragment
 
 class MainActivity : AppCompatActivity() {
@@ -17,9 +20,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, ListOfCitiesFragment.newInstance())
                 .commitNow()
         }
+
+        val string = intent.extras?.getString("custom", "no data") ?: "no data"
+        Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -35,6 +41,14 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.menu_history -> {
                 openFragment(HistoryFragment.newInstance())
+                true
+            }
+            R.id.menu_contacts -> {
+                openFragment(ContactsFragment.newInstance())
+                true
+            }
+            R.id.menu_google_maps -> {
+                openFragment(MapsFragment.newInstance())
                 true
             }
             else -> super.onOptionsItemSelected(item)
