@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bogomolov.weathertapp.R
 import com.bogomolov.weathertapp.framework.ui.contacs.ContactsFragment
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, ListOfCitiesFragment.newInstance())
                 .commitNow()
         }
+
+        val string = intent.extras?.getString("custom", "no data") ?: "no data"
+        Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
